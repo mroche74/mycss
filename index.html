@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="mycss.css">
+    <script src="jquery-3.2.0.min.js"></script>
+    <script src="mycss.js"></script>
+
+    <style>
+        body{
+            font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+            color:rgba(120,120,120,1);
+        }
+
+        img{
+            height:30px;
+            vertical-align:middle;
+        }
+
+        .content-full > div.row:nth-child(1){
+            height:30px;
+            background-color:rgba(77,77,77,1);
+        }
+        .content-full > div.row:nth-child(2){
+            /*border:2px solid yellow;*/
+            height:76px;
+        }
+        .content-full > div.row:nth-child(2) div[class*="cell-"]:nth-child(1){
+            background-color:rgba(116,198,45,1);
+        }
+        .content-full > div.row:nth-child(2) div[class*="cell-"]:nth-child(2){
+            background-color:rgba(77,77,77,1);
+            font-size:36px;
+        }
+        .content-full > div.row:nth-child(3){
+            background-color:rgba(140,140,140,1);
+            height:16px;
+        }
+
+        #main-content{
+            height:calc(100% - 280px);
+            /*background-image:url('bg_image.jpg');*/
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+        }
+
+        img{
+            height:68px;
+            max-height:68px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-full">
+        <div class="row">
+            <div class="cell-100">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell-75 cell-xs-65 cell-md-45 cell-lg-30 lg-middle-left test-class" >
+                <!--<img src="dimensiondata-logo-2x.png" />-->
+            </div>
+            <div class="cell-25 cell-xs-35 cell-md-55 cell-lg-70">
+                WiFi Access
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell-100">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell-100">
+
+            </div>
+        </div>
+        <div class="row" id="main-content" >
+            <div class="cell-10"></div>
+            <div class="cell-80 cell-left">
+
+                <label class="lbl-left" for="test-input">Test Input
+                    <input id="test-input" type="text" />
+                </label>
+                <label class="lbl-left" for="test-input">BBBBB</label>
+                <input id="test-input2" type="text" />
+                <select>
+                    <optgroup label="Group 1">
+                        <option>Test</option>
+                        <option>Test</option>
+                        <option>Test</option>
+                    </optgroup>
+                    <optgroup label="Group 2">
+                        <option>Test</option>
+                        <option>Test</option>
+                        <option>Test</option>
+                    </optgroup>
+                </select>
+                <label class="lbl-left" id="test">Select
+                    <select>
+                        <optgroup label="Group 1">
+                            <option>Test</option>
+                            <option>Test</option>
+                            <option>Test</option>
+                        </optgroup>
+                        <optgroup label="Group 2">
+                            <option>Test</option>
+                            <option>Test</option>
+                            <option>Test</option>
+                        </optgroup>
+                    </select>
+                </label>
+                <label class="lbl-left">
+                    <input type="checkbox" />
+                    Checkbox
+                </label>
+                <div class="select" >
+                    <div class="sel-options">
+                        <optgroup label="Group 1">
+                            <option>Test 1</option>
+                            <option>Test 2</option>
+                            <option>Test 3</option>
+                        </optgroup>
+                        <optgroup label="Group 2">
+                            <option>Test 4</option>
+                            <option>Test 5</option>
+                            <option>Test 6</option>
+                        </optgroup>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
