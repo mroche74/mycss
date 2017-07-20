@@ -142,19 +142,18 @@ $(document).ready(function(){
 
         $(window).resize(onResize);
 
+        function resizeRows(callback){
+            var xRows = $(".row .row:not('.row-fh')");
+            $.each(xRows, function(index, item){
+                $(item).css({'height':'auto'});
+            });
+            callback();
+        }
         function onResize(callback){
 
-            var xRows = $(".row .row:not('.sh')");
-            function resetHeights(xItems, callback){
-                $.each(xItems, function(index, item){
-                    $(this).css('height', 'auto');
-                });
-                callback();
-            }
-
-            resetHeights(xRows, function(){
+            resizeRows(function(){
                 //----------- for all outer-most rows, adjust the height of all child cells to the height of the tallest cell in the row
-                var xOuterRows = $("div.row:not('.row .row'), div.row.sh");
+                var xOuterRows = $("div.row:not('.row .row')");
                 $.each(xOuterRows, function(index, item){
 
                     var xOuterRow = $(item);
@@ -174,29 +173,29 @@ $(document).ready(function(){
                     });
                 });
 
+                function resetHeights(xItems, callback){
+                    $.each(xItems, function(index, item){
+                        $(this).css('height', 'auto');
+                    });
+                    callback();
+                }
+
                 //------------ get the first nested row in every cell
                 var xCells = $('.row [class*="2xs-"]>div>div, .row [class*="1xs-"]>div>div, .row [class*="sm-"]>div>div, .row [class*="md-"]>div>div, .row [class*="lg-"]>div>div, .row [class*="xl-"]>div>div');
-                var xFirstNestedRows = [];
+                var xFirstRows = [];
                 $.each(xCells, function(index, item){
                     if( $(this).children(".row").length > 0 ){
-                        xFirstNestedRows.push( $(this).children(".row")[0] );
+                        xFirstRows.push( $(this).children(".row")[0] );
                     }
                 });
 
-                $.each(xFirstNestedRows, function(index, item){
+                $.each(xFirstRows, function(index, item){
                     var xSubRow = $(this);
                     var xParentHeight = xSubRow.parent().parent().parent().height();
                     var xSiblings = xSubRow.siblings();
                     //----- collapse the height of this row and its siblings to the height of their contents
-                    if(!xSubRow.hasClass("sh")){
-                        xSubRow.css('height', 'auto');
-                    }
-                    $.each(xSiblings, function(item, index){
-                        if( !$(item).hasClass("sh") ){
-                            $(item).css('height', 'auto');
-                        }
-                    });
-
+                    xSubRow.css('height', 'auto');
+                    xSiblings.css('height', 'auto');
                     //----- store the combined minimum height of this group of rows in xHeight
                     var xHeight = xSubRow.height();
                     $.each(xSiblings, function(){
@@ -205,29 +204,15 @@ $(document).ready(function(){
                     //----- if the combined minimum height of this group of rows is less than the height of the
                     //----- enclosing cell, expand the height of these rows to fill their parent cell.
                     if(xHeight < xParentHeight){
-                        var xFlexRows = 0;
-                        if( ! xSubRow.hasClass("sh") ){
-                            xFlexRows ++;
-                        }
-                        $.each(xSiblings, function(){
-                            if( ! $(this).hasClass("sh") ){
-                                xFlexRows ++;
-                            }
-                        });
-
-                        var xDelta = parseFloat(((xParentHeight - xHeight) / (xFlexRows)).toFixed(1));
-                        if(! xSubRow.hasClass("sh")){
-                            var xTempHeight = xSubRow.height();
-                            xSubRow.height( xTempHeight + xDelta );
-                        }
+                        var xDelta = parseFloat(((xParentHeight - xHeight) / (xSiblings.length +1)).toFixed(1));
+                        var xTempHeight = xSubRow.height();
+                        xSubRow.height( xTempHeight + xDelta );
                         $.each(xSiblings, function(index, item){
-                            if(! $(item).hasClass("sh")){
-                                var xTempHeight = $(item).height();
-                                $(item).height( Math.ceil(xTempHeight + xDelta));
-                            }
+                            var xTempHeight = $(item).height();
+                            $(item).height( Math.ceil(xTempHeight + xDelta));
                         });
                     }else{ //------- otherwise, explicitly set the height of each row to its current height
-                        //------- so that the 100% height property of children will be honored
+                           //------- so that the 100% height property of children will be honored
                         var xTempHeight = xSubRow.height();
                         xSubRow.height(xTempHeight);
                         $.each(xSiblings, function(index, item){
@@ -286,20 +271,12 @@ $(document).ready(function(){
                 $(this).find(".wrap-dd").css({"left": -xDelta});
             }
             $(this).find(".wrap-dd").slideToggle(300);
-            //-------- hide any other expanded drop-down menus
+            //------- hide any other expanded drop-down menus
             var xThis = $(this).find(".wrap-dd");
             xThis.prop("active", true);
             contractDDs(function(){
                 xThis.prop("active", false);
             });
-        });
-
-        $('body').on("click", ".vertical-wrap>.nav, .vertical-wrap>.nav-left, .vertical-wrap>.nav-right",function(){
-            if( $(this).find(".dd").length > 0){
-                return;
-            }
-            $(this).parent().slideToggle(300);
-            contractDDs();
         });
 
         function contractDDs(callback){

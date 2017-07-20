@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Internet Access</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<link href="mycss.css" rel="stylesheet">
+	<script src="jquery-3.2.0.min.js"></script>
+	<script src="mycss.js"></script>
+
+	<style>
+		body{
+			text-align:center;
+			/*background-color:rgba(100,180,210,1);*/
+		}
+		h3{
+			margin-bottom:8px;
+			margin-top:40px;
+		}
+	 </style>
+</head>
+<body>
+
+	<div class="row">
+		<div class="2xs-w90-p5-left">
+				<h4>This css framework is a light-weight percentaged-based "grid" system that allows vertical and horizontal
+					positioning of cell contents at 6 separate screen-size intervals:</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="2xs-w70-p15 1xs-w50-p25 md-w50-p40 sm-w40-p30 lg-w20-p40">
+			<div class="2xs-w100-left">
+				<ol>
+					<li>"2xs-": 0-370px</li>
+					<li>"1xs-": 370-500px</li>
+					<li>"sm-": 500-700px</li>
+					<li>"md-": 700-900px</li>
+					<li>"lg-": 900-1200px</li>
+					<li>"xl-": 1200+px</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="2xs-w90-p5-left">
+			<ul>
+				<h3>Cell Formatting Rules</h3>
+				<li>Cells are designated with class names beginning with "2xs-", "1xs-", "sm-", "md-", "lg-", and "xl-" which denote the 6 screen sizes associated with this framework.</li>
+				<li>For each of the above 6 screen sizes, the width, left margin ("push"), vertical and horizontal alignment of a cell's contents are
+					controlled with a single format class name. (e.g. <b>"2xs-w50-p20-top-right"</b>)</li>
+				<li>If the height of a row <strong>is NOT</strong> explicitly set, the row will assume the height of its tallest cell and all cells within that row will expand to the height of their tallest sibling.</li>
+				<li>If the height of a row <strong>IS</strong> explicitly set, all of the cells in that row will expand to the height of the row.</li>
+				<li>Cells are sized (width) and marginalized at 5% increments from 0 to 100.</li>
+				<li>The default vertical and horizontal alignment of cell contents is middle,center.</li>
+				<li>Vertical alignment in cells is achieved by appending "-top", "mdl" or "-btm" to the class name.</li>
+				<li>Horizontal alignment in cells is achieved by appending "-left", "-ctr" or "-right" to the class name.</li>
+				<li>Cell formatting cascades upward with screen size.  If you format a cell at "2xs-" with no other screen size formats, that formatting will apply for all screen sizes.</li>
+				<li>The formatting characteristics that make up a screen-size-associated class can be written in any order so long as they are hyphenated, but the class name
+					<b>must</b> begin with the screen-size designation (e.g. "<b><u>2xs-</u>p5-w30</b>).</li>
+				<li>Default formatting (left margin ("push") = 0, vertical-alignment = middle, horizontal-alignment = center)
+					options can be omitted from a class name.  For example, the class name <b>"sm-w50-p0-mdl-ctr"</b> can be written as <b>"sm-w50" </b> <b><u>unless</u></b> any of these
+				default values were explicitly set to non-default values for a smaller screen size.</li>
+			</ul>
+			<ul>
+				<h3>Row Behavior</h3>
+				<li>The outer-most 'row' class for a group of cells and/or nested rows is always as tall as its tallest element or group of stacked elements unless its height or
+					minimum height is explicitly set.</li>
+				<li>If the combined height of a group of nested rows is less than that of the parent cell, the nested rows will expand in height to fit their parent.</li>
+			</ul>
+		</div>
+	</div>
+
+	<h3>Responsive Grid (with nested rows)</h3>
+
+	<!--Outer-most row-->
+	<div class="row" style="min-height:90px;">
+		<div class="2xs-p5-w45-top-right md-w15-p0" style="background-color:rgba(120,120,120,1); color:white">
+			Top Right<br/>
+			Width: 25%<br />
+			Push-left: 5%
+		</div>
+		<div class="md-w50-p10-top-ctr min-md">
+			<!--Nested row group-->
+			<div class="row" style="min-height: 70px">
+				<div class="2xs-w40-btm-left" style="background-color:rgba(190,190,190,1); color:white">
+					Bottom Left<br />
+					Width: 40%
+				</div>
+				<div class="2xs-w30-top-right" style="background-color:rgba(210,210,210,1)">
+					Top Right<br />
+					Width:30%
+				</div>
+				<div class="2xs-w30-mdl-ctr" style="background-color:rgba(240,240,240,1)">
+					Middle Center<br />
+					Width: 30%
+				</div>
+			</div>
+			<div class="row">
+				<div class="2xs-w50-top-left" style="background-color:rgba(150,150,150,1); color:white">
+					Top Left<br/>
+					Width: 50%
+				</div>
+				<div class="2xs-w50-btm-right" style="background-color:rgba(110,110,110,1); color:white">
+					Bottom Right<br/>
+					Width: 50%
+				</div>
+			</div>
+			<div class="row">
+				<div class="2xs-w25-top-left" style="background-color:rgba(160,160,160,1); color:white">
+					Top Left<br />
+					Width: 35%;
+				</div>
+				<div class="2xs-w50-btm-right">
+					<!--Nested row group-->
+					<div class="row">
+						<div class="2xs-w45-p5-top-left" style="background-color:rgba(130,130,130,1); color:white">
+							Top Left<br />
+							Width: 45%<br />
+							Push Left: 5%
+						</div>
+						<div class="2xs-w45-btm-right" style="background-color:rgba(220,220,220,1)">
+							Bottom Right<br />
+							Width: 45%
+						</div>
+					</div>
+					<div class="row">
+						<div class="2xs-w50-right" style="background-color:rgba(170,170,170,1); color:white">
+							Middle Right<br />
+							Width:50%
+						</div>
+						<div class="2xs-w50" style="background-color:rgba(60,60,60,1); color:white">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat ex vel feugiat cursus. Cras at aliquam risus. Pellentesque ullamcorper justo sit amet elementum mollis.
+						</div>
+					</div>
+				</div>
+				<div class="2xs-w25-btm-right" style="background-color:rgba(200,200,200,1); color:white">
+					Bottm Right<br />
+					Width: 35%;
+				</div>
+			</div>
+		</div>
+		<div class="2xs-w45-btm-left md-w15-p10" style="background-color:rgba(170,170,170,1); color:white">
+			Bottom Left<br/>
+			Width: 15%<br />
+			Push-left: 10%
+		</div>
+	</div>
+
+	<!--Outer-most row-->
+	<div class="row max-sm" style="min-height:60px; background-color:rgba(140,140,140,1);">
+		<!--<div class="2xs-w90-p5-mdl-left" style=" background-color:rgba(0,0,0,0.10);">-->
+			<!--Middle Left-->
+		<!--</div>-->
+	</div>
+
+	<h3>Responsive Navigation Bar (with left-justified logo)</h3>
+	<div class="nav-bar">
+		<div class="nav-left nav-logo">
+			<img src="Graduate Logo-Red Lincoln.png" />
+		</div>
+		<div class="nav">
+			Nav Item 1
+		</div>
+		<div class="nav">
+			Nav Item 2
+		</div>
+		<div class="nav dd">
+			Nav Item 3
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-item">Navigation Sub-Item 3</div>
+		</div>
+		<div class="nav-right dd">
+			Nav Item 4
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-groupheader">Group 1</div>
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-item">Navigation Sub-Item 3</div>
+			<div class="dd-divider"></div>
+			<div class="dd-groupheader">Group 2</div>
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-divider"></div>
+			<div class="dd-groupheader">Group 3</div>
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-item">Navigation Sub-Item 3</div>
+		</div>
+	</div>
+
+	<h3>Responsive Navigation Bar (with center-justified logo)</h3>
+
+	<div class="nav-bar" data-title="Nav Bar Title">
+		<div class="nav-left">
+			Nav Item 1
+		</div>
+		<div class="nav-left">
+			Nav Item 2
+		</div>
+		<div class="nav-left dd">
+			Nav Item 3
+			<div class="dd-groupheader">Group 1</div>
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-item">Navigation Sub-Item 3</div>
+			<div class="dd-divider"></div>
+			<div class="dd-groupheader">Group 2</div>
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-divider"></div>
+			<div class="dd-groupheader">Group 3</div>
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+		</div>
+		<div class="nav">
+			Nav Item 4
+		</div>
+		<div class="nav nav-logo">
+			<img src="Graduate Logo-Red Lincoln.png" />
+		</div>
+		<div class="nav dd">
+			Nav Item 5
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-item">Navigation Sub-Item 3</div>
+		</div>
+		<div class="nav-right dd">
+			Nav Item 6
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-item">Navigation Sub-Item 3</div>
+		</div>
+		<div class="nav-right dd">
+			Nav Item 7
+			<div class="dd-item">Navigation Sub-Item 1</div>
+			<div class="dd-item">Navigation Sub-Item 2</div>
+			<div class="dd-item">Navigation Sub-Item 3</div>
+		</div>
+	</div>
+
+    <form>
+        <div class="column">
+            <div class="2xs-w90-p5-mdl-ctr">
+
+                <select class="2xs-w15-left">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                </select>
+                <input class="2xs-w85-left" type="text" placeholder="Last Name"/>
+                <select class="2xs-w20-left">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                </select>
+                <input class="2xs-w40-left" type="text" placeholder="Last Name"/>
+                <input class="2xs-w40-left" type="text" placeholder="Last Name"/>
+                <select class="2xs-w50-left">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                </select>
+                <input class="2xs-w50-left" type="text" placeholder="Last Name"/>
+                <label class="2xs-w50-left">Label 1
+                    <input type="text" placeholder="Last Name"/>
+                </label>
+                <label class="2xs-w50-left">Label 2
+                    <input type="text" placeholder="Last Name"/>
+                </label>
+
+                <label class="2xs-w50-left">Label 1
+                    <select>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                        <option>Option 4</option>
+                    </select>
+                </label>
+                <label class="2xs-w50-left">Label 2
+                    <select>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                        <option>Option 4</option>
+                    </select>
+                </label>
+
+                <label class="2xs-w50-left">Label 1
+                    <input class="2xs-w50-left" type="text" placeholder="Last Name"/>
+                </label>
+                <label class="2xs-w50-left">Label 2
+                    <input class="2xs-w50-left" type="text" placeholder="Last Name"/>
+                </label>
+
+                <label class="2xs-w50-left">Label 3
+                    <select class="2xs-w60">
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                        <option>Option 4</option>
+                    </select>
+                </label>
+
+                <label class="2xs-w50-left">Label 4
+                    <select class="2xs-w60">
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                        <option>Option 4</option>
+                    </select>
+                </label>
+
+                <div class="nav-bar-min">
+                    <div class="nav-left nav-logo">
+                        <img src="Graduate Logo-Red Lincoln.png" />
+                    </div>
+                    <div class="nav">
+                        Item 1
+                    </div>
+                    <div class="nav-right">
+                        Item 2
+                    </div>
+					<div class="nav-right dd">
+						Item 3
+						<div class="dd-groupheader">Group 1</div>
+						<div class="dd-item">Navigation Sub-Item 1</div>
+						<div class="dd-item">Navigation Sub-Item 2</div>
+						<div class="dd-item">Navigation Sub-Item 3</div>
+						<div class="dd-divider"></div>
+						<div class="dd-groupheader">Group 2</div>
+						<div class="dd-item">Navigation Sub-Item 1</div>
+						<div class="dd-item">Navigation Sub-Item 2</div>
+						<div class="dd-divider"></div>
+						<div class="dd-groupheader">Group 3</div>
+						<div class="dd-item">Navigation Sub-Item 1</div>
+						<div class="dd-item">Navigation Sub-Item 2</div>
+					</div>
+                </div>
+
+                <div class="fg">
+                    <div class="fg-title">Form Group 1 Title</div>
+                    <label class="1xs-w35 1xs-w50">
+                        <input type="checkbox" />Checkbox1
+                    </label>
+                    <label class="1xs-w30 1xs-w50">
+                        <input type="checkbox" />Checkbox2
+                    </label>
+                    <label class="1xs-w35 1xs-w50">
+                        <input type="checkbox" />Checkbox3
+                    </label>
+                </div>
+
+                <label class="2xs-w50 sm-w25">
+                    <input class="2xs-w30" type="radio" name="test"/>Radio 1
+                </label>
+                <label class="2xs-w50 sm-w25">
+                    <input class="2xs-w30" type="radio" name="test"/>Radio 2
+                </label>
+                <label class="2xs-w50 sm-w25">
+                    <input class="2xs-w30" type="radio" name="test"/>Radio 3
+                </label>
+                <label class="2xs-w50 sm-w25">
+                    <input class="2xs-w30" type="radio" name="test"/>Radio 4
+                </label>
+
+                <!--fg is short for 'form group'-->
+                <div class="fg">
+                    <div class="fg-title">Form Group 2 Title </div>
+                    <label class="2xs-w50 sm-w25">
+                        <input class="2xs-w30" type="radio" name="test2"/>Radio 1
+                    </label><label class="2xs-w50 sm-w25">
+                        <input class="2xs-w30" type="radio" name="test2"/>Radio 2
+                    </label><label class="2xs-w50 sm-w25">
+                        <input class="2xs-w30" type="radio" name="test2"/>Radio 3
+                    </label><label class="2xs-w50 sm-w25">
+                        <input class="2xs-w30" type="radio" name="test2"/>Radio 4
+                    </label>
+                </div>
+
+                <a href="#" class="btn 2xs-w60">CONTINUE</a>
+
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
+
+

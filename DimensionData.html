@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link href="mycss.css" rel="stylesheet">
+    <script>
+        var xURL = window.location.href;
+        if (xURL.indexOf('localhost:') >= 0 || xURL.indexOf('file:') >= 0) {
+            document.write('<script src="jquery-3.2.0.min.js"><\/script>');
+        } else {
+            document.write('<script src="/portal_js/jquery-3.2.0.min.js"><\/script>');
+        }
+    </script>
+    <script src="mycss.js"></script>
+
+    <style>
+        body{
+            color:white;
+        }
+        h1{
+            font-weight:normal;
+        }
+        #main-content{
+            background-image:url("bg_image.jpg");
+            background-size:cover;
+            background-position: center center;
+            background-repeat:no-repeat;
+        }
+        .btn{
+            background-color: transparent;
+            font-size:28px;
+            box-shadow:0 0 5px rgba(0,0,0,1) inset;
+            padding:8px;
+            border-radius:8px;
+            transition:all 1s !important;
+        }
+        .btn:hover{
+            background-color:rgba(116,198,45,1) !important;
+            box-shadow:0 0 5px rgba(0,0,0,1) inset;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="row" style="height:100%">
+        <div class="2xs-w100">
+            <div class="row sh" style="height:28px; background-color:rgba(80,80,80,1)">
+            </div>
+            <div class="row sh" style="min-height:80px; background-color:rgba(80,80,80,1);">
+                <div class="2xs-w70-right 1xs-w60 sm-w50 md-w40 lg-w30 xl-w25" style="background-color:rgba(116,198,45,1)">
+                    <img src="dimensiondata-logo-2x.png" style="height:66px; margin:4px;">
+                </div>
+                <div class="2xs-w30 1xs-w40 sm-w50 md-w60 lg-w70 xl-w75">
+                    <h1>WiFi Access</h1>
+                </div>
+            </div>
+            <div class="row sh" style="height:20px; background-color:rgba(130,130,130,1);">
+            </div>
+            <div class="row" id="main-content">
+                <div class="2xs-w100">
+                    <h1>Connect using...</h1>
+                    <a class="btn">Access Code</a>
+                    <h1>or...</h1>
+                    <a class="btn">Credit Card</a>
+                </div>
+            </div>
+            <div class="row sh">
+            </div>
+            <div class="row sh" style="height:20px; background-color:rgba(130,130,130,1);">
+            </div>
+            <div class="row sh" style="height:70px; background-color:rgba(116,198,45,1);">
+                <div class="2xs-w100">
+                    <a class="btn">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

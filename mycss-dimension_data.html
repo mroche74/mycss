@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Internet Access</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<link href="mycss.css" rel="stylesheet">
+	<script src="jquery-3.2.0.min.js"></script>
+	<script src="mycss.js"></script>
+
+    <style>
+        body{
+            /*background-color:orange;*/
+        }
+        h2{
+            color:white;
+            font-weight:normal;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="row">
+        <div class="2xs-w100 sm-w90-p5 md-w70-p15 lg-w60-p20 xl-w50-p25">
+            <div class="row" style="min-height:26px">
+                <div class="2xs-w100" style="background-color:rgba(77,77,77,1);">
+                </div>
+            </div>
+            <div class="row" style="min-height:80px;">
+                <div class="2xs-w60-right" style="background-color:rgba(116,198,45,1)">
+                    <img src="dimensiondata-logo-2x.png" style="max-height:50px;">
+                </div>
+                <div class="2xs-w40" style="background-color:rgba(77,77,77,1);" >
+                    <h2>WiFi Access</h2>
+                </div>
+            </div>
+            <div class="row" style="min-height:12px">
+                <div class="2xs-w25" style="background-color:rgba(128,128,131,1);">
+                </div>
+                <div class="2xs-w25" style="background-color:rgba(128,128,131,1);">
+                </div>
+                <div class="2xs-w25" style="background-color:rgba(128,128,131,1);">
+                </div>
+                <div class="2xs-w25" style="background-color:rgba(128,128,131,1);">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div style="margin-left:20%; display:table; float:left; width:20%; border:none !important; border-collapse:collapse">
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+    </div>
+    <div style="display:table; float:left; width:20%; border:none !important; border-collapse:collapse">
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+
+    </div>
+    <div style="display:table; float:left; width:20%; border:none !important; border-collapse:collapse">
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+        <div style="display:table-cell; background-color:gray; border:none !important;">
+            1
+        </div>
+
+    </div>
+    <a class="twitter-timeline" data-partner="tweetdeck" href="https://twitter.com/single_digits1/lists/test-list-1">TEST</a>
+    <script src="twit.js" charset="utf-8"></script>
+    <div></div>
+
+
+</body>
+</html>
+
+<script>
+
+    document.ready = (function(){
+        var xInterval = window.setInterval(checkForTwitterWidget, 100);
+        function checkForTwitterWidget(){
+            if(document.getElementById('twitter-widget-0') != undefined){
+                window.clearInterval(xInterval);
+                $("#twitter-widget-0").contents().on("click", "a", function(e){
+                    console.log($(this).attr("href"));
+                    var xTwitterLink = $(this).attr("href");
+                    e.preventDefault();
+                    //--------- add authentication logic here...
+
+
+                });
+            }
+        }
+    })();
+
+</script>
